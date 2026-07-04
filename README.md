@@ -2,7 +2,7 @@
 
 **Hybrid AI + human messaging on Telegram**
 
-[Open in Telegram](https://t.me/) | Search for **Tendem Demo Bot** or use your deployment link
+[Open in Telegram](https://t.me/zachtedembot) | Search for **Tendem Demo Bot** or use your deployment link
 
 ---
 
