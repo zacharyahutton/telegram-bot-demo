@@ -1,107 +1,80 @@
-# Tendem by Zachary Hutton
+# Tendem Demo Bot
 
-Production-style **Telegram bot** built as a portfolio piece for Mindrift / Tendem (AI Pilot — Bot Developer) applications.
+**Hybrid AI + human messaging on Telegram**
 
-**Tendem** is a branded hybrid messaging experience: structured workflows (booking, support tickets, FAQ) plus an AI assistant with human escalation — not a generic demo bot.
+[Open in Telegram](https://t.me/) | Search for **Tendem Demo Bot** or use your deployment link
 
-Demonstrates messaging-platform patterns that transfer to **WhatsApp Business API**, **Telegram Bot API**, and **Discord**:
+---
 
-- Branded Main Hub with quick actions, category navigation, and persistent reply keyboard
-- Multi-step flows with step progress indicators and confirmation cards
-- LLM integration (Groq / OpenAI) with Tendem assistant persona and memory
-- 30+ FAQ entries with rich category intros
-- Inline keyboards with back navigation (`nav:menu`), edit-in-place UX
-- SQLite persistence (users, chat history, bookings, tickets, analytics)
-- Per-user rate limiting
-- Admin commands (`/stats`, `/health`)
-- **Webhook mode** (FastAPI + secret token validation)
-- **Polling mode** for local dev
+## What it is
 
-## Quick start
+**Tendem Demo Bot** is a portfolio Telegram assistant built by Zachary Hutton. It shows how a business messaging bot can combine structured workflows (booking, support, FAQ) with an AI assistant that remembers your conversation — and escalates to human-style flows when needed.
 
-```bash
-cd telegram-bot-demo
-python -m venv .venv
-.venv\Scripts\activate   # Windows
-pip install -r requirements.txt
-copy .env.example .env
-```
+Send `/start` to open the **Main Hub**: a branded home screen with quick actions, category navigation, and a persistent reply keyboard for one-tap access.
 
-1. Create a bot with [@BotFather](https://t.me/BotFather) on Telegram
-2. Paste `TELEGRAM_BOT_TOKEN` into `.env`
-3. Optional: set `GROQ_API_KEY` or `OPENAI_API_KEY` for AI chat
-4. Optional: set `ADMIN_USER_IDS` to your Telegram user ID (get it from [@userinfobot](https://t.me/userinfobot))
+---
 
-### Local (polling)
+## Features
 
-```bash
-python run_polling.py
-```
+- **Main Hub** — Branded welcome, inline menus, and pinned shortcuts (Main Hub, Ask AI, Book, Support)
+- **AI assistant** — Chat with the Tendem assistant; session memory stored per user (`/ai` or **Ask AI**)
+- **Knowledge base** — 30+ curated FAQ answers across 8 categories; browse by topic or type a question for keyword matching (`/faq`)
+- **Appointment booking** — 3-step flow: service → date → time slot → confirmation card (`/book`)
+- **Support tickets** — 3-step flow: category → description → priority → ticket ID (`/support`)
+- **Tools** — Tip of the day, UTC server time, quick calculator, bot health check
+- **Settings** — Clear AI memory, view account info (`/settings`, `/forget`)
+- **Reviewer tour** — 60-second capability walkthrough for hiring reviewers (`/review`)
+- **Privacy controls** — `/forget` removes your AI chat history from this demo instance
 
-Open your bot in Telegram and send `/start`.
-
-### Production (webhook — runs 24/7)
-
-See **[DEPLOY.md](./DEPLOY.md)** for the full Railway guide.
-
-```bash
-# Set WEBHOOK_URL=https://your-app.up.railway.app in .env
-python run_webhook.py
-```
-
-Endpoints:
-
-- `GET /health` — liveness
-- `POST /telegram/webhook` — Telegram updates (validates `X-Telegram-Bot-Api-Secret-Token`)
-
-**Hiring reviewers:** send `/review` for a 60-second capability tour, or `/about` for the brand story.
+---
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/start` | Branded welcome + Main Hub |
-| `/menu` | Main Hub |
-| `/about` | Brand story and architecture |
-| `/ai` | Tendem AI assistant mode |
-| `/faq` | Knowledge base (30+ topics) |
-| `/book` | Appointment booking flow |
-| `/support` | Support ticket flow |
-| `/tools` | Tips, time, quick calc, health |
-| `/settings` | Clear AI memory, account info |
-| `/forget` | Clear chat history |
-| `/review` | 60-sec tour for Mindrift/Tendem reviewers |
+| Command | What it does |
+|---------|--------------|
+| `/start` | Welcome message + Main Hub |
+| `/menu` | Return to Main Hub |
+| `/about` | Brand story and what this demo proves |
+| `/review` | 60-second tour for hiring reviewers |
+| `/ai` | Enter AI assistant mode |
+| `/faq` | Browse the knowledge base |
+| `/book` | Start appointment booking |
+| `/support` | Open a support ticket |
+| `/tools` | Utilities (tips, time, calculator, health) |
+| `/settings` | Preferences and account info |
+| `/forget` | Clear your AI chat memory |
 | `/health` | Bot health check |
-| `/stats` | Admin analytics |
 
-## Architecture
+**Reply keyboard shortcuts:** Main Hub, Ask AI, Book, Support
 
-```
-telegram-bot-demo/
-  bot/
-    handlers/core.py    # Commands, callbacks, conversation flows
-    content/brand.py    # Tendem brand copy and HTML helpers
-    content/faq.py      # FAQ knowledge base
-    keyboards/menus.py  # Inline / reply keyboards
-    services/llm.py     # Groq / OpenAI chat
-    database.py         # SQLite (aiosqlite)
-    config.py           # pydantic-settings
-  api/webhook_server.py # FastAPI webhook receiver
-  run_polling.py
-  run_webhook.py
-```
+---
 
-## Deploy (Railway / Render)
+## Quick walkthrough (reviewers)
 
-1. Set env vars from `.env.example`
-2. Start command: `python run_webhook.py`
-3. Set `WEBHOOK_URL` to your public HTTPS URL
-4. Register webhook automatically on startup
+1. **`/start`** — See the branded welcome and Main Hub with inline buttons and reply keyboard.
+2. **`/review`** — Read the guided 60-second tour of all capabilities.
+3. **`/book`** — Pick a service (Consultation, Demo walkthrough, Technical review, Onboarding call) → enter a date (`YYYY-MM-DD`) → choose a time slot → receive a confirmation card with booking ID.
+4. **`/support`** — Choose a category (Billing, Technical, Account, Integration, Other) → describe the issue → set priority (Low / Normal / Urgent) → receive a ticket ID.
+5. **`/ai`** — Ask a product or troubleshooting question; the assistant remembers recent messages in your session.
+6. **`/faq`** — Browse 8 categories or type a question (try searching for *whatsapp* or *discord* for cross-platform notes).
+7. **`/about`** — Background on the demo and the patterns it showcases.
+
+**Suggested order:** `/review` → `/book` → `/support` → `/ai`
+
+---
+
+## Tech stack
+
+Python, python-telegram-bot, FastAPI, SQLite, Groq/OpenAI
+
+---
 
 ## Author
 
 **Zachary Hutton** — Portmore, Jamaica  
-Portfolio: https://zachary-hutton-portfolio.vercel.app/  
-GitHub: https://github.com/zacharyahutton/telegram-bot-demo
+Portfolio: [zachary-hutton-portfolio.vercel.app](https://zachary-hutton-portfolio.vercel.app/)  
+GitHub: [github.com/zacharyahutton/telegram-bot-demo](https://github.com/zacharyahutton/telegram-bot-demo)
 
-Built for Mindrift Tendem freelance Bot Developer (AI Pilot) applications.
+---
+
+Developer setup: see [DEPLOY.md](./DEPLOY.md)
