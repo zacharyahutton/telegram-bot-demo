@@ -65,14 +65,14 @@ def main_menu_keyboard() -> InlineKeyboardMarkup:
         ],
         [
             InlineKeyboardButton("About Tendem", callback_data="mode:about"),
-            InlineKeyboardButton("Reviewer Tour", callback_data="mode:review"),
+            InlineKeyboardButton("Capability Tour", callback_data="mode:review"),
         ],
     ])
 
 
 def about_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([
-        [InlineKeyboardButton("Start Reviewer Tour", callback_data="mode:review")],
+        [InlineKeyboardButton("Start Capability Tour", callback_data="mode:review")],
         _back_row(),
     ])
 

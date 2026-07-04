@@ -16,7 +16,7 @@ WELCOME_TEXT = (
     f"{DIVIDER}\n"
     "<b>Get started</b>\n"
     "Tap a button below or open the Main Hub.\n\n"
-    "Hiring reviewer? Send /review for a 60-second capability tour."
+    "New here? Send /review for a 60-second capability tour."
 )
 
 MAIN_MENU_TEXT = (
@@ -34,8 +34,8 @@ MAIN_MENU_TEXT = (
 ABOUT_TEXT = (
     f"<b>About {BRAND_FULL}</b>\n"
     f"{DIVIDER}\n\n"
-    "Built for Mindrift / Tendem-style messaging work: hybrid AI plus structured "
-    "workflows on Telegram, with patterns that transfer to WhatsApp and Discord.\n\n"
+    "A portfolio demo of hybrid AI plus structured messaging workflows on Telegram, "
+    "with patterns that transfer to WhatsApp and Discord.\n\n"
     "<b>What this demo proves</b>\n"
     "• Multi-step booking and support flows with progress tracking\n"
     "• LLM chat with SQLite memory and FAQ fallbacks\n"
@@ -47,8 +47,8 @@ ABOUT_TEXT = (
 )
 
 REVIEWER_TOUR_TEXT = (
-    f"<b>{BRAND_NAME} — Reviewer Tour</b>\n"
-    f"<i>60 seconds · built for Tendem hiring</i>\n"
+    f"<b>{BRAND_NAME} — Capability Tour</b>\n"
+    f"<i>60 seconds · feature overview</i>\n"
     f"{DIVIDER}\n\n"
     "<b>1 · Conversational flows</b>\n"
     "/book — service → date → time → confirmation card\n"
@@ -101,7 +101,7 @@ HELP_TEXT = (
     "/start — Welcome + Main Hub\n"
     "/menu — Return to Main Hub\n"
     "/about — Brand story and architecture\n"
-    "/review — 60-sec tour for hiring reviewers\n"
+    "/review — 60-sec capability tour\n"
     "/ai — AI assistant mode\n"
     "/faq — Knowledge base categories\n"
     "/book — Appointment booking\n"

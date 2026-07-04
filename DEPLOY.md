@@ -80,7 +80,7 @@ Webhook registered: https://…/telegram/webhook
 
 1. Open `https://YOUR-DOMAIN.up.railway.app/health` in a browser → `{"status":"ok",…}`
 2. Open Telegram → your bot → `/start`
-3. Send `/review` — 60-second walkthrough for hiring reviewers
+3. Send `/review` — 60-second capability tour
 4. Test `/book`, `/support`, `/ai`, `/faq`
 
 ---
@@ -92,7 +92,7 @@ Railway disks reset on redeploy unless you attach a volume:
 1. Service → **Volumes** → Add mount at `/app/data`
 2. Keep `DATABASE_PATH=/app/data/tendem_demo.db`
 
-For a demo application, ephemeral SQLite is usually fine.
+For a demo deployment, ephemeral SQLite is usually fine.
 
 ---
 
@@ -127,9 +127,9 @@ Or use BotFather → `/deletebot` is nuclear; prefer deleting webhook via API or
 
 ---
 
-## Apply with this link
+## Share your live demo
 
-After deploy, update your cover letter:
+After deploy, your public links:
 
 ```
 Live demo: t.me/YourBotUsername
@@ -137,4 +137,4 @@ Source: github.com/zacharyahutton/telegram-bot-demo
 Health: https://YOUR-DOMAIN.up.railway.app/health
 ```
 
-Send reviewers: **“Open the bot and send `/review`”** — it maps directly to the Tendem job requirements.
+New users can send `/review` for a guided tour of all capabilities.

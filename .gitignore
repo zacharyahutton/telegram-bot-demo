@@ -3,3 +3,10 @@ data/
 .venv/
 __pycache__/
 *.db
+
+# Private local folder (sibling to repos, never pushed)
+../_private-career/
+
+# Internal strategy docs (kept in _private-career)
+docs/
+pfp.png

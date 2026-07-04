@@ -23,7 +23,7 @@ Send `/start` to open the **Main Hub**: a branded home screen with quick actions
 - **Support tickets** — 3-step flow: category → description → priority → ticket ID (`/support`)
 - **Tools** — Tip of the day, UTC server time, quick calculator, bot health check
 - **Settings** — Clear AI memory, view account info (`/settings`, `/forget`)
-- **Reviewer tour** — 60-second capability walkthrough for hiring reviewers (`/review`)
+- **Capability tour** — 60-second walkthrough of all bot features (`/review`)
 - **Privacy controls** — `/forget` removes your AI chat history from this demo instance
 
 ---
@@ -35,7 +35,7 @@ Send `/start` to open the **Main Hub**: a branded home screen with quick actions
 | `/start` | Welcome message + Main Hub |
 | `/menu` | Return to Main Hub |
 | `/about` | Brand story and what this demo proves |
-| `/review` | 60-second tour for hiring reviewers |
+| `/review` | 60-second capability tour |
 | `/ai` | Enter AI assistant mode |
 | `/faq` | Browse the knowledge base |
 | `/book` | Start appointment booking |
@@ -49,7 +49,7 @@ Send `/start` to open the **Main Hub**: a branded home screen with quick actions
 
 ---
 
-## Quick walkthrough (reviewers)
+## Quick walkthrough
 
 1. **`/start`** — See the branded welcome and Main Hub with inline buttons and reply keyboard.
 2. **`/review`** — Read the guided 60-second tour of all capabilities.
